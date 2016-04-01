@@ -1,0 +1,180 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+* {
+  font-family: 'Roboto', sans-serif;
+}
+#wrapper {
+  padding-left: 15%;
+  padding-right: 15%;
+  transition: all 0.4s ease 0s;
+}
+.menu-glyphicon {
+  font-size: 50px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.sidebar-wrapper {
+  display: table;
+  text-align: center;
+  width: 15%;
+  background: #FAFAFA;
+  position: fixed;
+  height: 100%;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
+  color: rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0px 3px 15px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 3px 15px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 3px 15px 1px rgba(0, 0, 0, 0.3);
+}
+.sidebar-wrapper:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.34);
+  background: #F7F7F7;
+}
+#left-sidebar-wrapper {
+  margin-left: -15%;
+  left: 15%;
+}
+#right-sidebar-wrapper {
+  margin-right: -15%;
+  right: 15%;
+}
+#page-content-wrapper {
+  width: 100%;
+}
+#slider-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin-left: 135px;
+}
+#slider-content {
+  position: relative;
+  transition: all 0.4s ease 0s;
+  width: 3000px;
+}
+.timetable-header {
+  font-size: 0;
+  position: fixed;
+  width: inherit;
+  line-height: 45px;
+  background: #FFFFFF;
+  z-index: 900;
+  /*under sidebars and content-left*/
+  -webkit-box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.5);
+}
+.header-cell {
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: inline-block;
+  background-color: #3F51B5;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+  text-align: center;
+  vertical-align: middle;
+}
+.separator-vertical {
+  border-right: 1px solid rgba(255, 255, 255, 0.54);
+  position: relative;
+  float: right;
+  height: 27px;
+  top: 9px;
+}
+#content-left {
+  position: absolute;
+  display: inline-block;
+  width: 135px;
+  z-index: 1000;
+  /*should be higher than timetable-header*/
+}
+#content-left > .timetable-header > .header-cell {
+  width: inherit;
+  background-color: #303F9F;
+  z-index: 1000;
+}
+.interval-column {
+  border: none !important;
+  padding-top: 45px;
+  width: 135px;
+  -webkit-box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.5);
+}
+.interval-column > .column-cell {
+  font-size: 13px;
+  font-weight: 600;
+  background-color: #C5CAE9;
+  color: rgba(0, 0, 0, 1);
+}
+.interval-type-break {
+  background-color: #E8EAF6 !important;
+}
+.interval-container {
+  display: inline-block;
+  line-height: normal;
+  vertical-align: middle;
+  letter-spacing: 1px;
+}
+.column-cell {
+  background-color: #E8EAF6;
+  text-align: center;
+  width: inherit;
+}
+.lesson-container {
+  position: relative;
+  transition: all 0.4s ease 0s;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+}
+.lesson-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+.lesson-type {
+  font-size: 13px;
+}
+.lesson-time {
+  font-size: 16px;
+  font-weight: 600;
+}
+.lesson-room {
+  font-size: 16px;
+}
+.lesson-with {
+  font-size: 13px;
+}
+.lesson-lecture {
+  background-color: #4CAF50;
+  color: rgba(255, 255, 255, 0.8);
+}
+.lesson-lecture:hover {
+  background-color: #388E3C;
+}
+.lesson-lab {
+  background-color: #9C27B0;
+  color: rgba(255, 255, 255, 0.8);
+}
+.lesson-lab:hover {
+  background-color: #7B1FA2;
+}
+.lesson-practice {
+  background-color: #009688;
+  color: rgba(255, 255, 255, 0.8);
+}
+.lesson-practice:hover {
+  background-color: #00796B;
+}
+.timetable-layout {
+  display: inline-table;
+  margin-top: 45px;
+  height: 100%;
+}
+.timetable-column {
+  border-right: 1px solid #FFF;
+  display: inline-block;
+  overflow: hidden;
+  /*don't know why, but layout fucks up without this*/
+}

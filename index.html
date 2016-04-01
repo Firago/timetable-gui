@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="timetableApp">
+
+<head>
+  <title>Timetable</title>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body ng-controller="timetableCtrl as timetable">
+  <div id="wrapper">
+    <div id="left-sidebar-wrapper" class="sidebar-wrapper" ng-click="left()">
+      <span class="glyphicon glyphicon-menu-left menu-glyphicon" aria-hidden="true"></span>
+    </div>
+    <div id="right-sidebar-wrapper" class="sidebar-wrapper" ng-click="right()">
+      <span class="glyphicon glyphicon-menu-right menu-glyphicon" aria-hidden="true"></span>
+    </div>
+    <div id="page-content-wrapper">
+      <div id="content-left">
+        <div class="timetable-header">
+          <div class="header-cell">
+            Godzina
+          </div>
+        </div>
+        <div class="timetable-column interval-column">
+          <div class="column-cell" ng-repeat="interval in timetable.intervals" ng-class="{'interval-type-break': interval.type == 'break'}" ng-style="{'height': interval.height + 'px', 'line-height': interval.height + 'px'}">
+            <div class="interval-container" ng-if="interval.type == 'lesson'">
+              {{getFormattedTime(interval.start)}} - {{getFormattedTime(interval.end)}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="slider-wrapper">
+        <div id="slider-content" ng-style="{left: sliderOffset + 'px'}">
+          <div class="timetable-header">
+            <div class="header-cell" ng-style="{width: column.width + 'px'}" ng-repeat="column in timetable.columns">
+              <span>{{column.header}}</span>
+              <span class="separator-vertical"></span>
+            </div>
+          </div>
+          <div class="timetable-layout">
+            <div class="timetable-column" ng-repeat="column in timetable.columns" ng-style="{width: column.width + 'px'}">
+              <div class="column-cell" ng-repeat="entry in column.entries" ng-style="{height: cellHeight + 'px', background: entry.color}">
+                <div class="lesson-container" ng-if="entry.title != null" ng-class="{'lesson-lecture': entry.type == 'W', 'lesson-lab': entry.type == 'L', 'lesson-practice': entry.type == 'C'}" ng-style="{'height': entry.height + 'px'}">
+                  <div style="padding: 7px 5px 0 5px">
+                    <span class="lesson-title">{{entry.title}}</span>
+                    <span class="lesson-type">({{entry.type}})</span>
+                  </div>
+                  <div style="padding-top: 5px">
+                    <span class="lesson-time">{{getFormattedTime(entry.start)}} - {{getFormattedTime(entry.end)}}</span>
+                    <span class="lesson-room">({{entry.room}})</span>
+                  </div>
+                  <div style="padding-top: 5px">
+                    <span class="lesson-with">{{entry.with}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
